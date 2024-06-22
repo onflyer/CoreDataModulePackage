@@ -8,7 +8,7 @@
 import CoreData
 
 /// Represents Core Data stack.
-public final class Stack {
+public final class CoreDataService {
     
     // MARK: - Properties
     

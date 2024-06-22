@@ -7,7 +7,7 @@
 
 import CoreData
 
-extension Stack {
+extension CoreDataService {
     
     static let viewContextDefaultConfigurator: (NSManagedObjectContext) -> Void = { context in
         context.automaticallyMergesChangesFromParent = true
