@@ -10,7 +10,7 @@ import Foundation
 
 @available(macOS 12.0, iOS 15.0.0, *)
 extension NSManagedObjectContext {
-    func mapToDomain<E, R>(request: NSFetchRequest<E>) async throws -> [R] where E: NSManagedObject, E: DomainMappable, R == E.DomainType {
+    func fetchAndMapToDomain<E, R>(request: NSFetchRequest<E>) async throws -> [R] where E: NSManagedObject, E: DomainMappable, R == E.DomainType {
         try await self.perform { [weak self] in
             try self?.fetch(request).compactMap { try $0.toDomainObject() } ?? []
         }
