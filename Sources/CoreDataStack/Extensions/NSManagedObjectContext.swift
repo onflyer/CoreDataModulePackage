@@ -9,7 +9,7 @@ import CoreData
 import Foundation
 
 @available(macOS 12.0, iOS 15.0.0, *)
-extension NSManagedObjectContext {
+ public extension NSManagedObjectContext {
     func fetchAndMapToDomain<E, R>(request: NSFetchRequest<E>) async throws -> [R] where E: NSManagedObject, E: DomainMappable, R == E.DomainType {
         try await self.perform { [weak self] in
             try self?.fetch(request).compactMap { try $0.toDomainObject() } ?? []
@@ -17,11 +17,11 @@ extension NSManagedObjectContext {
     }
 }
 
-enum MapError: Error {
+public enum MapError: Error {
     case invalidMapping
 }
 
-protocol DomainMappable {
+public protocol DomainMappable {
     associatedtype DomainType
     func toDomainObject() throws -> DomainType
 }
