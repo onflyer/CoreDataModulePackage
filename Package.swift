@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "CoreDataStack",
+    name: "CoreDataModule",
     platforms: [.iOS(.v15), .macOS(.v12)],
     products: [
         .library(
-            name: "CoreDataStack",
-            targets: ["CoreDataStack"]),
+            name: "CoreDataModule",
+            targets: ["CoreDataModule"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -17,10 +17,10 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "CoreDataStack",
+            name: "CoreDataModule",
             dependencies: []),
         .testTarget(
-            name: "CoreDataStackTests",
-            dependencies: ["CoreDataStack"]),
+            name: "CoreDataModuleTests",
+            dependencies: ["CoreDataModule"]),
     ]
 )
